@@ -1,0 +1,37 @@
+{
+  "name": "appid-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "esbuild --minify --bundle --format=esm --platform=node --target=node21 --outfile=out/index.js --packages=external src/index.ts",
+    "start": "node out/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/mysql": "^2.15.26",
+    "@types/node": "^22.10.7",
+    "@types/serve-favicon": "^2.5.7",
+    "esbuild": "^0.24.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "serve-favicon": "^2.5.0",
+    "zod": "^3.24.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": "esbuild"
+  }
+}

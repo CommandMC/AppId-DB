@@ -85,3 +85,23 @@ the instance. Contact your instance hoster for details on which platforms they s
    Note: While this script has to be run with write permissions, the DB user used by the API only needs to be able to
    read the respective tables.
 6. Run `pnpm start` to start the server
+
+### Adding platforms
+
+To add a new platform, add a row to the `t_platforms` table.
+- `slug` should be a unique identifier for the platform (e.g. `steam`/`epic`/`gog`)
+- `name` should be a descriptive name of the platform.  
+  Note: `name` is currently unused, although a "Look up all platforms" endpoint might be implemented soon
+
+### Adding games
+
+To add a new game, add a row to the `t_games` table.
+- `title` should be a recognizable title of the game. If a game has multiple titles, you might want to use the
+  most generic/recognizable one.
+
+### Adding game IDs
+
+To add IDs for a previously added game & platform combo, add a row to the `t_platform_ids` table.
+- `game_id` and `platform_id` are IDs of the respective game & platform in the tables detailed above
+- `id_on_platform` should be a platform-specific unique ID of the game on the respective platform.  
+  Note: What exactly qualifies as a "platform-specific unique ID" is up to you.
